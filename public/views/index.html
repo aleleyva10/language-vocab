@@ -7,23 +7,37 @@
   <script type="text/javascript" src="vendors/angular.min.js" charset="utf-8"></script>
   <script type="text/javascript" src="scripts/VocabController.js" charset="utf-8"></script>
   <script type="text/javascript" src="scripts/VocabService.js" charset="utf-8"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
   <link rel="stylesheet" href="styles/main.css">
 </head>
 
 <body ng-app="myApp">
   <h1>Language Translator</h1>
-  <div ng-controller="VocabularyController as vc" ng-init="vc.getVocabulary()">
+  <div ng-controller="VocabularyController as vc">
 
     <div class="spanish-container">
       <label for="spanish-words">Spanish</label>
-      <input type="text" name="spanish-words" placeholder="Enter a word..." ng-model="vc.spanishWords">
-      <button type="button" class="addButton">Add</button>
+      <input type="text" name="spanish-words" placeholder="Enter a word..." ng-model="vc.word1">
+      <button class="btn btn-default addButton" ng-click="vc.postToVocabulary()">Add Words</button>
     </div>
 
     <div class="english-container">
       <label for="english-words">English</label>
-      <input type="text" name="english-words" placeholder="Enter a word..." ng-model="vc.englishWords">
-      <button type="button" class="addButton">Add</button>
+      <input type="text" name="english-words" placeholder="Enter a word..." ng-model="vc.word2">
+    </div>
+    <div class="vocabularyList" ng-init="vc.getVocabulary()">
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="card-block">
+            <p ng-repeat="words in vc.newWords">
+              {{words.word1}} {{words.word2}}
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
     </div>
   </div>
 </body>
