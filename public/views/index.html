@@ -28,8 +28,8 @@
     <div class="vocabularyList" ng-init="vc.getVocabulary()">
       <div class="row">
         <div class="col-sm-3">
-          <button ng-show="vc.vocabulary" class="spanish-words" ng-click="vc.spanishWords(word1)">Spanish</button>
-          <button ng-show="vc.vocabulary" class="english-words" ng-click="vc.englishWords(word2)">English</button>
+          <button ng-show="vc.vocabulary" class="spanish-words" ng-click="vc.sortWords()">Spanish</button>
+          <button ng-show="vc.vocabulary" class="english-words" ng-click="vc.sortWords()">English</button>
           <button ng-show="vc.vocabulary" class="all-words" ng-click="vc.getVocabulary()">All Words</button>
           <div class="card-block">
             <p ng-repeat="words in vc.vocabulary" ng-init="editing=false">

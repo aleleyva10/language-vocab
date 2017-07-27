@@ -21,7 +21,7 @@ router.get('/', function(req, res) {
   vocabularyModel.find().then(function(results) {
     res.send(results);
   });
-}); // end vocabulary get call
+}); // end router get
 
 
 router.post('/', function(req, res) {
@@ -33,7 +33,7 @@ router.post('/', function(req, res) {
   var newWords = vocabularyModel(wordsToAdd);
   newWords.save();
   res.send('hello!!');
-}); // end post
+}); // end router post
 
 
 router.delete('/:id', function(req, res) {
@@ -64,6 +64,6 @@ router.put('/:id', function(req, res) {
     console.log(err);
     res.sendStatus(500);
   });
-});
+}); // end router put
 
 module.exports = router;
