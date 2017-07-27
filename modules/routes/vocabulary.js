@@ -48,18 +48,21 @@ router.delete('/:id', function(req, res) {
 
 
 router.put('/:id', function(req, res) {
+
   var id = req.params.id;
   var wordsToAdd = {
     word1: req.body.word1,
     word2: req.body.word2,
   };
   console.log(id);
-  vocabularyModel.update({
-    _id: id,
-    word1: req.body.word1,
-    word2: req.body.word2
+  vocabularyModel.findByIdAndUpdate(id, { $set:
+    {word1: req.body.word1,
+    word2: req.body.word2}
   }).then(function() {
-    res.send(200);
+    res.sendStatus(200);
+  }).catch(function(err){
+    console.log(err);
+    res.sendStatus(500);
   });
 });
 

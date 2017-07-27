@@ -43,4 +43,5 @@ myApp.service('VocabService', function($http) {
     }); // end $http
   }; // end updateWords
 
+
 }); // end service
