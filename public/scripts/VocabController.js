@@ -24,4 +24,21 @@ myApp.controller('VocabularyController', function(VocabService) {
     });
   }; // end getVocabulary
 
-});
+
+  vm.deleteWords = function(words) {
+    console.log('in delete', words);
+    VocabService.deleteWords(words._id).then(function() {
+      vm.getVocabulary();
+    });
+  }; // end deleteWords
+
+
+  vm.updateWords = function(words){
+    console.log('in update', words);
+    VocabService.updateWords(words).then(function() {
+      vm.getVocabulary();
+    });
+  };
+
+
+}); // end controller
