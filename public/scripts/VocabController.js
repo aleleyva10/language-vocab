@@ -40,15 +40,12 @@ myApp.controller('VocabularyController', function(VocabService) {
     });
   };
 
-  vm.spanishWords = function(word1){
-    console.log('in spanishWords', word1);
-      vm.getVocabulary(word1);
+  vm.sortWords = function(){
+    console.log('in sortWords');
+      vm.getVocabulary();
     };
 
-    vm.englishWords = function(word2){
-      console.log('in englishWords', word2);
-        vm.getVocabulary(word2);
-      };
+
 
 
 }); // end controller

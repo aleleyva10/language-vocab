@@ -42,7 +42,7 @@ router.delete('/:id', function(req, res) {
   vocabularyModel.remove({
     _id: id
   }).then(function() {
-    res.send(200);
+    res.sendStatus(200);
   });
 }); // end router delete
 

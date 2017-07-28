@@ -27,11 +27,12 @@
     </div>
     <div class="vocabularyList" ng-init="vc.getVocabulary()">
       <div class="row">
-        <div class="col-sm-3">
-          <button ng-show="vc.vocabulary" class="spanish-words" ng-click="vc.sortWords()">Spanish</button>
-          <button ng-show="vc.vocabulary" class="english-words" ng-click="vc.sortWords()">English</button>
-          <button ng-show="vc.vocabulary" class="all-words" ng-click="vc.getVocabulary()">All Words</button>
-          <div class="card-block">
+        <div class="col-sm-3" ng-init="sorting=false">
+          <button class="spanishBtn" ng-click="vc.sortWords()">Spanish</button>
+          <button class="englishBtn" ng-click="vc.sortWords()">English</button>
+          <button class="all-words" ng-click="vc.getVocabulary()">All Words</button>
+
+          <div class="card-block" ng-show="!sorting">
             <p ng-repeat="words in vc.vocabulary" ng-init="editing=false">
               {{words.word1 | uppercase }} {{words.word2 | lowercase }}
               <input type="text" ng-model="words.word1" ng-show="editing">
@@ -42,6 +43,27 @@
             </p>
           </div>
 
+          <div class="card-block1" ng-show="sorting">
+            <p ng-repeat="words in vc.vocabulary" ng-init="editing=false">
+              {{words.word1 | uppercase }}
+              <input type="text" ng-model="words.word1" ng-show="editing">
+              <input type="text" ng-model="words.word2" ng-show="editing">
+              <button class="saveBtn" ng-click="vc.updateWords(words);editing=!editing" ng-show="editing">Save</button>
+              <button class="updateBtn" ng-click='editing=!editing' ng-show="!editing">Edit</button>
+              <button class="deleteBtn" ng-click='vc.deleteWords(words)'>Delete</button>
+            </p>
+          </div>
+
+          <div class="card-block2" ng-show="sorting">
+            <p ng-repeat="words in vc.vocabulary" ng-init="editing=false">
+               {{words.word2 | lowercase }}
+              <input type="text" ng-model="words.word1" ng-show="editing">
+              <input type="text" ng-model="words.word2" ng-show="editing">
+              <button class="saveBtn" ng-click="vc.updateWords(words);editing=!editing" ng-show="editing">Save</button>
+              <button class="updateBtn" ng-click='editing=!editing' ng-show="!editing">Edit</button>
+              <button class="deleteBtn" ng-click='vc.deleteWords(words)'>Delete</button>
+            </p>
+          </div>
         </div>
 
       </div>
