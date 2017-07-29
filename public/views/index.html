@@ -26,9 +26,9 @@
       <input type="text" name="english-words" placeholder="Enter a word..." ng-model="vc.word2">
     </div>
     <div class="vocabularyList" ng-init="vc.getVocabulary()">
+
       <div class="row">
         <div class="col-sm-3">
-
           <button class="allBtn" ng-click="vc.allWords()">All Words</button>
           <div class="card-block">
             <p ng-repeat="words in vc.vocabulary" ng-init="editing=false" ng-show="vc.allWord">

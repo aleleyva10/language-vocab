@@ -6,7 +6,7 @@ var mongoose = require('mongoose');
 mongoose.connect('localhost:27017/languagesVocab');
 var vocabularySchema = new mongoose.Schema({
   word1: String,
-  word2: String,
+  word2: String
 });
 var vocabularyModel = mongoose.model('vocabularyModel', vocabularySchema);
 

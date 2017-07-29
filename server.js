@@ -16,4 +16,4 @@ var port = process.env.PORT || 4000;
 // spin up the server
 app.listen(port, function(){
   console.log('server up on port:', port);
-}); // end server spin up
+}); // end the server spin up

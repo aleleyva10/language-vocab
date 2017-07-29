@@ -18,7 +18,6 @@ myApp.controller('VocabularyController', function(VocabService) {
     });
   }; // end postToVocabulary
 
-
   vm.getVocabulary = function() {
     console.log('in controller, getVocabulary');
     VocabService.getVocabulary().then(function() {
@@ -27,14 +26,12 @@ myApp.controller('VocabularyController', function(VocabService) {
     });
   }; // end getVocabulary
 
-
   vm.deleteWords = function(words) {
     console.log('in delete', words);
     VocabService.deleteWords(words._id).then(function() {
       vm.getVocabulary();
     });
   }; // end deleteWords
-
 
   vm.updateWords = function(words) {
     console.log('in update', words);
@@ -57,10 +54,5 @@ myApp.controller('VocabularyController', function(VocabService) {
     vm.allWord = !vm.allWord;
     console.log('in  allWord');
   };
-
-
-
-
-
 
 }); // end controller
