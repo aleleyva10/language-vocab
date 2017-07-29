@@ -1,10 +1,6 @@
-a {
-  color: indigo;
-  font-family: helvetica;
-}
 body {
   font-family: courier;
-  background-color: #9FFFCB;
+  background-color: white;
 }
 div {
   font-family: courier;
@@ -13,7 +9,7 @@ div {
 h1 {
   color: #000080;
   font-family: arial;
-  margin-left: 1%;
+  margin-left: 2%;
 }
 h2 {
   color: black;
@@ -28,4 +24,15 @@ h3 {
 p {
   color: black;
   font-family: courier;
+}
+
+.addBtn {
+  background-color: #7AE582;
+  border-radius: 10px;
+}
+
+
+.deleteBtn {
+background-color: red;
+border-radius: 10px;
 }

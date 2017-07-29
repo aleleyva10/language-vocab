@@ -3,70 +3,31 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Language Vocabulary Practice</title>
+  <title>Full Stack Challenge</title>
   <script type="text/javascript" src="vendors/angular.min.js" charset="utf-8"></script>
-  <script type="text/javascript" src="scripts/VocabController.js" charset="utf-8"></script>
-  <script type="text/javascript" src="scripts/VocabService.js" charset="utf-8"></script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <script type="text/javascript" src="scripts/EmployeeController.js" charset="utf-8"></script>
+  <script type="text/javascript" src="scripts/EmployeeService.js" charset="utf-8"></script>
   <link rel="stylesheet" href="styles/main.css">
 </head>
 
 <body ng-app="myApp">
-  <h1>Language Translator</h1>
-  <div ng-controller="VocabularyController as vc">
-
-    <div class="spanish-container">
-      <label for="spanish-words">Spanish</label>
-      <input type="text" name="spanish-words" placeholder="Enter a word..." ng-model="vc.word1">
-      <button class="btn btn-default addButton" ng-click="vc.postToVocabulary()">Add Words</button>
+  <h1>Employee Information Sheet</h1>
+  <div ng-controller="EmployeeController as ec">
+    <div class="row" >
+      <input type="text" name="employee-name" ng-model="ec.name" placeholder="Enter Employee Name">
+      <input type="text" name="employee-position" ng-model="ec.position" placeholder="Enter Employee Position">
+      <input type="text" name="employee-income" ng-model="ec.income" placeholder="Enter Employee Income">
+      <button class="addBtn" ng-click="ec.addEmployee()">Add Employee</button>
     </div>
+    <div class="container" ng-init="ec.getEmployee()">
 
-    <div class="english-container">
-      <label for="english-words">English</label>
-      <input type="text" name="english-words" placeholder="Enter a word..." ng-model="vc.word2">
+      <p> Total Employee Salary: <span id="info">$0.00</span></p>
+      <p ng-repeat="employees in ec.employee">
+        {{employees.name | uppercase}} {{employees.position}} {{employees.income | currency}}
+        <button class="deleteBtn" ng-click='ec.deleteEmployee(employees)'>Fire</button>
+      </p>
     </div>
-    <div class="vocabularyList" ng-init="vc.getVocabulary()">
-      <div class="row">
-        <div class="col-sm-3">
-
-          <button class="allBtn" ng-click="vc.allWords()">All Words</button>
-          <div class="card-block">
-            <p ng-repeat="words in vc.vocabulary" ng-init="editing=false" ng-show="vc.allWord">
-              {{words.word1 | uppercase }} {{words.word2 | lowercase }}
-              <input type="text" ng-model="words.word1" ng-show="editing">
-              <input type="text" ng-model="words.word2" ng-show="editing">
-              <button class="saveBtn" ng-click="vc.updateWords(words);editing=!editing" ng-show="editing">Save</button>
-              <button class="updateBtn" ng-click='editing=!editing' ng-show="!editing">Edit</button>
-              <button class="deleteBtn" ng-click='vc.deleteWords(words)'>Delete</button>
-            </p>
-          </div>
-
-          <div class="card-block1">
-            <button class="spanishBtn" ng-click="vc.spanishWords()">Spanish</button>
-            <p ng-repeat="words in vc.vocabulary" ng-init="editing=false" ng-show="vc.spanishWord">
-              {{words.word1 | uppercase }}
-              <input type="text" ng-model="words.word1" ng-show="editing">
-              <button class="saveBtn" ng-click="vc.updateWords(words);editing=!editing" ng-show="editing">Save</button>
-              <button class="updateBtn" ng-click='editing=!editing' ng-show="!editing">Edit</button>
-              <button class="deleteBtn" ng-click='vc.deleteWords(words)'>Delete</button>
-            </p>
-          </div>
-
-          <div class="card-block2">
-            <button class="englishBtn" ng-click="vc.englishWords()">English</button>
-            <p ng-repeat="words in vc.vocabulary" ng-init="editing=false" ng-show="vc.englishWord">
-              {{words.word2 | lowercase }}
-              <input type="text" ng-model="words.word2" ng-show="editing">
-              <button class="saveBtn" ng-click="vc.updateWords(words);editing=!editing" ng-show="editing">Save</button>
-              <button class="updateBtn" ng-click='editing=!editing' ng-show="!editing">Edit</button>
-              <button class="deleteBtn" ng-click='vc.deleteWords(words)'>Delete</button>
-            </p>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
+  </div>
   </div>
 </body>
 

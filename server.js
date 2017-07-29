@@ -2,12 +2,12 @@
 var express = require('express');
 var app = express();
 var index = require('./modules/routes/index');
-var vocabulary = require('./modules/routes/vocabulary');
+var employee = require('./modules/routes/employee');
 
 // uses
 app.use(express.static('public'));
 app.use('/', index);
-app.use('/vocabulary', vocabulary);
+app.use('/employee', employee);
 
 //globals
 var port = process.env.PORT || 4000;
