@@ -16,6 +16,8 @@ myApp.controller('VocabularyController', function(VocabService) {
       console.log('back in controller after post');
       vm.getVocabulary();
     });
+    vm.word1 = '';
+    vm.word2 = '';
   }; // end postToVocabulary
 
   vm.getVocabulary = function() {

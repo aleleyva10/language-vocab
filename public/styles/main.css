@@ -7,7 +7,7 @@ div {
   margin-left: 3%;
 }
 h1 {
-  color: #000080;
+  color: indigo;
   font-family: arial;
   margin-left: 2%;
 }
@@ -27,12 +27,43 @@ p {
 }
 
 .addBtn {
-  background-color: #7AE582;
+  background-color: #53FF45;
   border-radius: 10px;
 }
-
 
 .deleteBtn {
 background-color: red;
 border-radius: 10px;
+}
+
+.updateBtn {
+  background-color: #FFED66;
+  border-radius: 10px;
+}
+
+.saveBtn {
+  background-color: #9FFFCB;
+  border-radius: 10px;
+}
+
+
+.allBtn {
+  display: inline-grid;
+  background-color: #6610F2;
+  color: white;
+  border-radius: 10px;
+}
+
+.spanishBtn {
+  display: inline-block;
+  background-color: #E3170A;
+  color: white;
+  border-radius: 10px;
+}
+
+.englishBtn {
+  display: inline-block;
+  background-color: #007FFF;
+  color: white;
+  border-radius: 10px;
 }
