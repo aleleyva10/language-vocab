@@ -13,7 +13,7 @@ router.get('/', function(req, res){
 
 router.post('/', function(req, res){
   console.log('base url post hit', req.body);
-  res.send('something');
+  res.send('Something');
 });
 
 module.exports = router;
