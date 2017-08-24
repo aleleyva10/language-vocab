@@ -29,7 +29,9 @@ myApp.service('VocabService', function($http) {
     return $http({
       method: 'DELETE',
       url: '/vocabulary/' + id,
-    }).then(function() {}); // end $http
+    }).then(function(response) {
+      console.log('in delete back from server with:', response );
+    }); // end $http
   }; // end deleteWords
 
 
